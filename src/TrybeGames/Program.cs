@@ -1,6 +1,8 @@
 ﻿using System;
 using TrybeGames;
 
+// começando o projeto! #vqv
+
 class People
 {
     public string? Name { get; set; }
