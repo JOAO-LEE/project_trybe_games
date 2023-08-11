@@ -28,8 +28,9 @@ public class TrybeGamesDatabase
     // 6. Crie a funcionalidade de buscar jogos comprados por uma pessoa jogadora
     public List<Game> GetGamesOwnedBy(Player playerEntry)
     {
-        // Implementar
-        throw new NotImplementedException();
+        return (from developedGame in Games
+                where developedGame.Players.Contains(playerEntry.Id)
+                select developedGame).ToList();
     }
 
 
@@ -43,10 +44,10 @@ public class TrybeGamesDatabase
     // 8. Crie a funcionalidade de buscar todos os diferentes Tipos de jogos dentre os jogos cadastrados
     public List<GameType> GetGameTypes()
     {
+        //Reference from the 'Distinct' operator used below.
+        // https://stackoverflow.com/questions/21807339/avoid-duplicate-in-linq
         return (from developedGame in Games
                 select developedGame.GameType).Distinct().ToList();
-
-
     }
 
     // 9. Crie a funcionalidade de buscar todos os estúdios de jogos junto dos seus jogos desenvolvidos com suas pessoas jogadoras
