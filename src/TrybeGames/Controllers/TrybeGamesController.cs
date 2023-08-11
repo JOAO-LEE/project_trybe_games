@@ -1,4 +1,6 @@
 using System.Globalization;
+using System.Collections;
+
 
 namespace TrybeGames;
 public class TrybeGamesController
@@ -153,19 +155,35 @@ public class TrybeGamesController
     // 3. Crie a funcionalidade de adicionar novo Jogo ao Banco de dados
     public void AddGame()
     {
-        Console.WriteLine("Digite abaixo, nesta sequência, as seguintes informações, seguidas de espaços em branco:");
-        Console.WriteLine("Nome do jogo - Data de Lançamento - Gênero do jogo");
-        string? gameInfo = Console.ReadLine();
-        List<IGameInput> gameInfoList = gameInfo.Split().ToList();
-
-        int gameId = this.database.Games.Count() + 1;
-        Game createdGame = new Game()
-        {
-            Name = gameInfoList[0],
-            Id = gameId,
-            ReleaseDate = Convert.ToDateTime(gameInfoList[1]),
-            GameType = gameInfoList[2]
-        }
+        // Console.WriteLine("Digite abaixo o nome do jogo e pressione enter:");
+        // string? gameName = Console.ReadLine();
+        // Console.WriteLine("Digite abaixo o a data de lançamento do jogo e pressione enter (\"dd/mm/yy\"):");
+        // string? gameRealeaseDate = Console.ReadLine();
+        // bool dateWasConverted = DateTime.TryParseExact(gameRealeaseDate, "dd/mm/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime gameReleaseDateConverted);
+        // if (!dateWasConverted)
+        // {
+        //     Console.WriteLine("O formato de data de lançamento é inválido! (\"dd/mm/yy\")");
+        //     return;
+        // }
+        // Console.WriteLine("Digite abaixo o número do gênero do jogo e pressione enter:");
+        // Console.WriteLine("0 - Action / 1 - Adventure / 2 - Puzzle / 3 - Strategy / 4 - Simulation / 5 - Sports / 6 - Other");
+        // string? gameGenre = Console.ReadLine();
+        // bool isInputANumberAndValid = int.TryParse(gameGenre, out int gameGenreNum) && Enum.IsDefined(typeof(GameType), gameGenreNum);
+        // if (!isInputANumberAndValid)
+        // {
+        //     Console.WriteLine("O gênero do jogo é inválido! Escolha um dos abaixo");
+        //     Console.WriteLine("0 - Action / 1 - Adventure / 2 - Puzzle / 3 - Strategy / 4 - Simulation / 5 - Sports / 6 - Other");
+        //     return;
+        // }
+        // int gameId = this.database.Games.Count() + 1;
+        // Game createdGame = new Game()
+        // {
+        //     Name = gameName,
+        //     Id = gameId,
+        //     ReleaseDate = gameReleaseDateConverted,
+        //     GameType = (GameType)gameGenreNum,
+        // };
+        // this.database.Games.Add(createdGame);
     }
 
     public void ChangeGameStudio(Game game)
