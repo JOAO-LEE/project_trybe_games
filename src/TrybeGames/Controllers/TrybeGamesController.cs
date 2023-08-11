@@ -138,8 +138,16 @@ public class TrybeGamesController
     // 2. Crie a funcionalidade de adicionar um novo estúdio de jogos ao banco de dados
     public void AddGameStudio()
     {
-        // implementar
-        Console.WriteLine("Ainda não é possível realizar essa funcionalidade!");
+        string? studioName = Console.ReadLine();
+        int studioId = this.database.GameStudios.Count() + 1;
+        DateTime dateOfCreation = new DateTime();
+        GameStudio createdStudio = new GameStudio()
+        {
+            Name = studioName,
+            Id = studioId,
+            CreatedAt = dateOfCreation
+        };
+        this.database.GameStudios.Add(createdStudio);
     }
 
     // 3. Crie a funcionalidade de adicionar novo Jogo ao Banco de dados
