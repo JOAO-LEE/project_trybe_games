@@ -168,13 +168,13 @@ public class TrybeGamesController
         }
 
         Console.WriteLine("Digite abaixo o número do gênero do jogo e pressione enter:");
-        Console.WriteLine("0 - Action / 1 - Adventure / 2 - Puzzle / 3 - Strategy / 4 - Simulation / 5 - Sports / 6 - Other");
+        PrintGameTypes();
         string? gameGenre = Console.ReadLine();
         bool gameTypeIsNumberAndExist = Enum.TryParse(gameGenre, out GameType gameGenreNum) && Enum.IsDefined(typeof(GameType), gameGenreNum);
         if (!gameTypeIsNumberAndExist)
         {
             Console.WriteLine("O gênero do jogo é inválido! Escolha um dos abaixo");
-            Console.WriteLine("0 - Action / 1 - Adventure / 2 - Puzzle / 3 - Strategy / 4 - Simulation / 5 - Sports / 6 - Other");
+            PrintGameTypes();
             return;
         }
 
