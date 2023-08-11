@@ -11,7 +11,6 @@ public class TrybeGamesDatabase
     // 4. Crie a funcionalidade de buscar jogos desenvolvidos por um estúdio de jogos
     public List<Game> GetGamesDevelopedBy(GameStudio gameStudio)
     {
-
         return (from developedGame in Games
                 where developedGame.DeveloperStudio == gameStudio.Id
                 select developedGame).ToList();
@@ -37,7 +36,6 @@ public class TrybeGamesDatabase
     // 7. Crie a funcionalidade de buscar todos os jogos junto do nome do estúdio desenvolvedor
     public List<GameWithStudio> GetGamesWithStudio()
     {
-        // Implementar
         return (from developedGame in Games
                 join studio in GameStudios
                 on developedGame.DeveloperStudio equals studio.Id
@@ -56,8 +54,15 @@ public class TrybeGamesDatabase
     // 9. Crie a funcionalidade de buscar todos os estúdios de jogos junto dos seus jogos desenvolvidos com suas pessoas jogadoras
     public List<StudioGamesPlayers> GetStudiosWithGamesAndPlayers()
     {
-        // Implementar
         throw new NotImplementedException();
+        // return (from studio in GameStudios
+        //         join developedGames in Games
+        //         on studio.Id equals developedGames.DeveloperStudio into gameAndStudio
+        //         select new StudioGamesPlayers
+        //         {
+        //             GameStudioName = studio.Name,
+        //             Games = from product in gameAndSt
+        //         }).ToList();
     }
 
 }
