@@ -8,7 +8,6 @@ public class TrybeGamesDatabase
 
     public List<Player> Players = new List<Player>();
 
-    // 4. Crie a funcionalidade de buscar jogos desenvolvidos por um estúdio de jogos
     public List<Game> GetGamesDevelopedBy(GameStudio gameStudio)
     {
         return (from developedGame in Games
@@ -16,7 +15,6 @@ public class TrybeGamesDatabase
                 select developedGame).ToList();
     }
 
-    // 5. Crie a funcionalidade de buscar jogos jogados por uma pessoa jogadora
     public List<Game> GetGamesPlayedBy(Player player)
     {
         return (from developedGame in Games
@@ -24,7 +22,6 @@ public class TrybeGamesDatabase
                 select developedGame).ToList();
     }
 
-    // 6. Crie a funcionalidade de buscar jogos comprados por uma pessoa jogadora
     public List<Game> GetGamesOwnedBy(Player playerEntry)
     {
         return (from developedGame in Games
@@ -32,8 +29,6 @@ public class TrybeGamesDatabase
                 select developedGame).ToList();
     }
 
-
-    // 7. Crie a funcionalidade de buscar todos os jogos junto do nome do estúdio desenvolvedor
     public List<GameWithStudio> GetGamesWithStudio()
     {
         return (from developedGame in Games
@@ -42,7 +37,6 @@ public class TrybeGamesDatabase
                 select new GameWithStudio { GameName = developedGame.Name, StudioName = studio.Name, NumberOfPlayers = developedGame.Players.Count }).ToList();
     }
 
-    // 8. Crie a funcionalidade de buscar todos os diferentes Tipos de jogos dentre os jogos cadastrados
     public List<GameType> GetGameTypes()
     {
         //Reference from the 'Distinct' operator used below.
@@ -51,7 +45,6 @@ public class TrybeGamesDatabase
                 select developedGame.GameType).Distinct().ToList();
     }
 
-    // 9. Crie a funcionalidade de buscar todos os estúdios de jogos junto dos seus jogos desenvolvidos com suas pessoas jogadoras
     public List<StudioGamesPlayers> GetStudiosWithGamesAndPlayers()
     {
 
@@ -70,5 +63,4 @@ public class TrybeGamesDatabase
                              }).ToList()
                 }).ToList();
     }
-
 }
