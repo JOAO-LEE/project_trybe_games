@@ -47,7 +47,6 @@ public class TrybeGamesDatabase
 
     public List<StudioGamesPlayers> GetStudiosWithGamesAndPlayers()
     {
-
         return (from studio in GameStudios
                 join developedGames in Games
                 on studio.Id equals developedGames.DeveloperStudio into gameAndStudio

@@ -14,13 +14,9 @@ public class TestTrybeGamesDatabase
     [MemberData(nameof(DataTestGetGamesPlayedBy))]
     public void TestGetGamesPlayedBy(TrybeGamesDatabase databaseEntry, int playerIdEntry, List<Game> expected)
     {
-        throw new NotImplementedException();
-
-        // Arrange
-        
-        // AcT
-
-        // Assert
+        Player? player = databaseEntry.Players.Find(pl => pl.Id == playerIdEntry);
+        List<Game>? games = databaseEntry.GetGamesPlayedBy(player);
+        games.Should().BeEquivalentTo(expected);
     }
 
     public static TheoryData<TrybeGamesDatabase, int, List<Game>> DataTestGetGamesPlayedBy => new TheoryData<TrybeGamesDatabase, int, List<Game>>
